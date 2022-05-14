@@ -20,12 +20,18 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        // exclude: /node_modules\/(?!axios)/,
+        exclude: /node_modules/,
+        use: "babel-loader",
+      },
+      {
         test: /\.vue$/,
         use: "vue-loader",
       },
       {
         test: /.s?css$/,
-        use: ["vue-style-loader", "css-loader", "sass-loader"],
+        use: ["vue-style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
     ],
   },
